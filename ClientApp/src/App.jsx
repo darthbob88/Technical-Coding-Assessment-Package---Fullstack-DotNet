@@ -36,6 +36,7 @@ function App() {
   const [status, setStatus] = useState("all");
   const [bedrooms, setBedrooms] = useState("any");
   const [maxPrice, setMaxPrice] = useState(700000);
+  const [minPrice, setMinPrice] = useState(300_000);
   const [saved, setSaved] = useState([]);
   const [savedOnly, setSavedOnly] = useState(false);
   const [sort, setSort] = useState("newest");
@@ -64,10 +65,17 @@ function App() {
     };
   }, []);
 
+  // Cheap solution, to reuse the error-handling, but it works.
+  useEffect(() => {
+    if (minPrice > maxPrice) setError("Minimum price cannot be greater than maximum price");
+    else setError("");
+  }, [minPrice, maxPrice]);
+
   const cities = [...new Set(listings.map((listing) => listing.city))].sort();
   const activeCount = listings.filter(
     (listing) => listing.status === "active",
   ).length;
+
   const results = listings
     .filter((listing) => {
       const text =
@@ -98,6 +106,7 @@ function App() {
     setStatus("all");
     setBedrooms("any");
     setMaxPrice(700000);
+    setMinPrice(300000);
     setSavedOnly(false);
   }
 
@@ -320,6 +329,27 @@ function App() {
               </div>
               <div className="divider" />
               <div className="price-head">
+                <span className="filter-label">Minimum price</span>
+                <strong>{money(minPrice)}</strong>
+              </div>
+              <input
+                className="range"
+                aria-label="Minimum price"
+                type="range"
+                min="300000"
+                max="700000"
+                step="25000"
+                value={minPrice}
+                onChange={(event) => setMinPrice(Number(event.target.value))}
+              />
+              <div className="range-labels">
+                <span>$300k</span>
+                <span>$700k+</span>
+              </div>
+              <div className="divider" />
+              <div className="price-head">
+                {/* TODO: Thanks to not using a mono font, the width can jump upsettingly between values,
+                causing it to wrap to two lines. Test it by going from 375 to 400 */}
                 <span className="filter-label">Maximum price</span>
                 <strong>{money(maxPrice)}</strong>
               </div>
