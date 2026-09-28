@@ -1,0 +1,6 @@
+@Technical_Coding_Assessment_Package___Fullstack_DotNet_HostAddress = http://localhost:5125
+
+GET {{Technical_Coding_Assessment_Package___Fullstack_DotNet_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
