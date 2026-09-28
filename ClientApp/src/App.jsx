@@ -71,8 +71,8 @@ function App() {
         <a className="brand" href="#top"><span className="brand-mark"><Home size={17} /></span><span>fieldnote<span className="period">.</span></span></a>
         <p className="side-label">WORKSPACE</p>
         <nav className="side-nav" aria-label="Workspace">
-          <a className={!savedOnly ? 'nav-link active' : 'nav-link'} href="#listings"><span className="nav-glyph">▦</span>Listings<span className="nav-count">{listings.length}</span></a>
-          <button className={savedOnly ? 'nav-link active' : 'nav-link'} onClick={() => setSavedOnly(!savedOnly)}><Bookmark size={16} />Saved<span className="nav-count">{saved.length}</span></button>
+          <button className={!savedOnly ? 'nav-link active' : 'nav-link'} onClick={() => setSavedOnly(false)}><span className="nav-glyph">▦</span>Listings<span className="nav-count">{listings.length}</span></button>
+          <button className={savedOnly ? 'nav-link active' : 'nav-link'} onClick={() => setSavedOnly(true)}><Bookmark size={16} />Saved<span className="nav-count">{saved.length}</span></button>
         </nav>
         <div className="sidebar-rule" />
         <p className="side-label">YOUR MARKET</p>
