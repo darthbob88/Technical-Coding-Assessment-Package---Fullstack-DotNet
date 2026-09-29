@@ -12,7 +12,7 @@ import {
 import { ListingCard } from "./ListingCard";
 
 
-type ListingStatus = "active" | "pending";
+type ListingStatus = "active" | "pending" | "sold";
 export type Listing = {
   id: string;
   source: string;
