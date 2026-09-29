@@ -20,7 +20,27 @@ const photos = [
   "photo-1600566753190-17f0baa2a6c3",
 ];
 
-const money = (amount) =>
+type ListingStatus = "active" | "pending";
+type Listing = {
+  id: string;
+  source: string;
+  address: string;
+  city: string;
+  state: string;
+  zip: string;
+  price: number;
+  bedrooms: number;
+  bathrooms: number;
+  sqft: number;
+  listedDate: string;
+  status: ListingStatus;
+  description: string;
+};
+type StatusFilter = "all" | ListingStatus;
+type BedroomFilter = "any" | "1" | "2" | "3" | "4+";
+type SortOption = "newest" | "price-low" | "price-high" | "target-budget";
+
+const money = (amount: number) =>
   new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -28,18 +48,18 @@ const money = (amount) =>
   }).format(amount);
 
 function App() {
-  const [listings, setListings] = useState([]);
+  const [listings, setListings] = useState<Listing[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [query, setQuery] = useState("");
   const [city, setCity] = useState("All areas");
-  const [status, setStatus] = useState("all");
-  const [bedrooms, setBedrooms] = useState("any");
+  const [status, setStatus] = useState<StatusFilter>("all");
+  const [bedrooms, setBedrooms] = useState<BedroomFilter>("any");
   const [maxPrice, setMaxPrice] = useState(700000);
   const [minPrice, setMinPrice] = useState(300_000);
-  const [saved, setSaved] = useState([]);
+  const [saved, setSaved] = useState<string[]>([]);
   const [savedOnly, setSavedOnly] = useState(false);
-  const [sort, setSort] = useState("newest");
+  const [sort, setSort] = useState<SortOption>("newest");
 
   //TODO: Target budget scoring is just abs(listing price - target budget).
   // There are better options, but that's what I thought of.
@@ -50,7 +70,7 @@ function App() {
     fetch("/api/listings")
       .then((response) => {
         if (!response.ok) throw new Error("Listing service unavailable");
-        return response.json();
+        return response.json() as Promise<Listing[]>;
       })
       .then((data) => {
         if (!cancelled) setListings(data);
@@ -99,7 +119,9 @@ function App() {
     })
     .sort((a, b) => {
       if (sort === "newest") {
-        return new Date(b.listedDate) - new Date(a.listedDate);
+        return (
+          new Date(b.listedDate).getTime() - new Date(a.listedDate).getTime()
+        );
       } else if (sort === "price-low") {
         return a.price - b.price;
       } else if (sort === "price-high") {
@@ -109,6 +131,7 @@ function App() {
           Math.abs(a.price - targetBudget) - Math.abs(b.price - targetBudget)
         );
       }
+      return 0;
     });
 
   function resetFilters() {
@@ -121,7 +144,7 @@ function App() {
     setSavedOnly(false);
   }
 
-  function toggleSaved(id) {
+  function toggleSaved(id: string) {
     setSaved((current) =>
       current.includes(id)
         ? current.filter((item) => item !== id)
@@ -239,7 +262,9 @@ function App() {
               {listings.length
                 ? new Date(
                     Math.max(
-                      ...listings.map((item) => new Date(item.listedDate)),
+                      ...listings.map((item) =>
+                        new Date(item.listedDate).getTime(),
+                      ),
                     ),
                   ).toLocaleDateString("en-US", {
                     month: "short",
@@ -264,7 +289,9 @@ function App() {
               Sort by{" "}
               <select
                 value={sort}
-                onChange={(event) => setSort(event.target.value)}
+                onChange={(event) =>
+                  setSort(event.target.value as SortOption)
+                }
               >
                 <option value="newest">Newest first</option>
                 <option value="price-low">Price: low to high</option>
@@ -318,7 +345,7 @@ function App() {
                   <button
                     key={value}
                     className={status === value ? "radio selected" : "radio"}
-                    onClick={() => setStatus(value)}
+                    onClick={() => setStatus(value as StatusFilter)}
                   >
                     <i />
                     {label}
@@ -333,7 +360,7 @@ function App() {
                   <button
                     key={value}
                     className={bedrooms === value ? "bed selected" : "bed"}
-                    onClick={() => setBedrooms(value)}
+                    onClick={() => setBedrooms(value as BedroomFilter)}
                   >
                     {value === "any" ? "Any" : value}
                   </button>
