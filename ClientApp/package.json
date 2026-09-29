@@ -5,18 +5,30 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "test": "jest"
   },
   "devDependencies": {
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "@babel/preset-react": "^7.29.7",
+    "@babel/preset-typescript": "^7.29.7",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
+    "@types/jest": "^30.0.0",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "babel-jest": "^30.5.2",
+    "jest": "^30.5.2",
+    "jest-environment-jsdom": "^30.5.2",
     "typescript": "latest"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
-    "vite": "latest",
+    "lucide-react": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "lucide-react": "latest"
+    "vite": "latest"
   }
 }

@@ -11,6 +11,15 @@ import {
 } from "lucide-react";
 import { ListingCard } from "./ListingCard";
 
+const photos = [
+  "photo-1600596542815-ffad4c1539a9",
+  "photo-1600607687939-ce8a6c25118c",
+  "photo-1600566753086-00f18fb6b3ea",
+  "photo-1600047509807-ba8f99d2cdde",
+  "photo-1600607687920-4e2a09cf159d",
+  "photo-1600585154340-be6161a56a0c",
+  "photo-1600566753190-17f0baa2a6c3",
+];
 
 type ListingStatus = "active" | "pending" | "sold";
 export type Listing = {
@@ -444,7 +453,7 @@ function App() {
                     <ListingCard
                       key={listing.id}
                       listing={listing}
-                      index={index}
+                      photoURL={`https://images.unsplash.com/${photos[index % photos.length]}?auto=format&fit=crop&w=900&q=82`}
                       saveListing={toggleSaved}
                       isSaved={saved.includes(listing.id)}
                     />

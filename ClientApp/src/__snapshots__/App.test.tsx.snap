@@ -1,0 +1,715 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`App loads listings and filters them by search text 1`] = `
+<div>
+  <div
+    class="app-shell"
+  >
+    <aside
+      class="sidebar"
+    >
+      <a
+        class="brand"
+        href="#top"
+      >
+        <span
+          class="brand-mark"
+        >
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-house lucide-home"
+            fill="none"
+            height="17"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"
+            />
+            <path
+              d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+            />
+          </svg>
+        </span>
+        <span>
+          fieldnote
+          <span
+            class="period"
+          >
+            .
+          </span>
+        </span>
+      </a>
+      <p
+        class="side-label"
+      >
+        WORKSPACE
+      </p>
+      <nav
+        aria-label="Workspace"
+        class="side-nav"
+      >
+        <button
+          class="nav-link active"
+        >
+          <span
+            class="nav-glyph"
+          >
+            ▦
+          </span>
+          Listings
+          <span
+            class="nav-count"
+          >
+            0
+          </span>
+        </button>
+        <button
+          class="nav-link"
+        >
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-bookmark"
+            fill="none"
+            height="16"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z"
+            />
+          </svg>
+          Saved
+          <span
+            class="nav-count"
+          >
+            0
+          </span>
+        </button>
+      </nav>
+      <div
+        class="sidebar-rule"
+      />
+      <p
+        class="side-label"
+      >
+        YOUR MARKET
+      </p>
+      <div
+        class="market-pill"
+      >
+        <span
+          class="market-dot"
+        />
+        Northern Virginia
+        <svg
+          aria-hidden="true"
+          class="lucide lucide-chevron-down"
+          fill="none"
+          height="15"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="15"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m6 9 6 6 6-6"
+          />
+        </svg>
+      </div>
+      <div
+        class="side-bottom"
+      >
+        <div
+          class="market-note"
+        >
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-sparkles lucide-stars"
+            fill="none"
+            height="15"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"
+            />
+            <path
+              d="M20 2v4"
+            />
+            <path
+              d="M22 4h-4"
+            />
+            <circle
+              cx="4"
+              cy="20"
+              r="2"
+            />
+          </svg>
+          <div>
+            <strong>
+              Market note
+            </strong>
+            <p>
+              New homes have been added to your feed.
+            </p>
+          </div>
+        </div>
+        <div
+          class="profile"
+        >
+          <span
+            class="avatar"
+          >
+            JD
+          </span>
+          <span>
+            <strong>
+              Jordan Davis
+            </strong>
+            <small>
+              Personal workspace
+            </small>
+          </span>
+        </div>
+      </div>
+    </aside>
+    <main
+      class="main-content"
+      id="top"
+    >
+      <header
+        class="topbar"
+      >
+        <div
+          class="crumb"
+        >
+          Workspace 
+          <span>
+            /
+          </span>
+           
+          <strong>
+            Listings
+          </strong>
+        </div>
+        <div
+          class="live"
+        >
+          <i />
+           Live data 
+          <span
+            class="avatar mini"
+          >
+            JD
+          </span>
+        </div>
+      </header>
+      <section
+        class="heading"
+      >
+        <div>
+          <p
+            class="eyebrow"
+          >
+            NORTHERN VIRGINIA 
+            <span>
+              ·
+            </span>
+             MARKET OVERVIEW
+          </p>
+          <h1>
+            Listing desk
+          </h1>
+          <p
+            class="subheading"
+          >
+            A clear view of what's available, where it is, and what it costs.
+          </p>
+        </div>
+        <button
+          class="refresh"
+        >
+          ↻ 
+          <span>
+            Refresh data
+          </span>
+        </button>
+      </section>
+      <section
+        aria-label="Listing summary"
+        class="stats"
+      >
+        <div>
+          <span>
+            Source listings
+          </span>
+          <strong>
+            —
+          </strong>
+          <small>
+            Across 
+            —
+             areas
+          </small>
+        </div>
+        <div>
+          <span>
+            Active now
+          </span>
+          <strong>
+            —
+          </strong>
+          <small>
+            <i
+              class="green-dot"
+            />
+             Ready to view
+          </small>
+        </div>
+        <div>
+          <span>
+            Average asking
+          </span>
+          <strong>
+            —
+          </strong>
+          <small>
+            Current feed
+          </small>
+        </div>
+        <div>
+          <span>
+            Latest update
+          </span>
+          <strong>
+            —
+          </strong>
+          <small>
+            From connected sources
+          </small>
+        </div>
+      </section>
+      <section
+        class="results-section"
+        id="listings"
+      >
+        <div
+          class="section-heading"
+        >
+          <div>
+            <div
+              class="title-line"
+            >
+              <h2>
+                Available listings
+              </h2>
+              <span
+                class="count"
+              >
+                0
+              </span>
+            </div>
+            <p>
+              Browse homes from your connected sources
+            </p>
+          </div>
+          <label
+            class="sort"
+          >
+            Sort by
+             
+            <select>
+              <option
+                value="newest"
+              >
+                Newest first
+              </option>
+              <option
+                value="price-low"
+              >
+                Price: low to high
+              </option>
+              <option
+                value="price-high"
+              >
+                Price: high to low
+              </option>
+              <option
+                value="target-budget"
+              >
+                Target budget
+              </option>
+            </select>
+          </label>
+        </div>
+        <label
+          class="search"
+        >
+          <svg
+            aria-hidden="true"
+            class="lucide lucide-search"
+            fill="none"
+            height="17"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m21 21-4.34-4.34"
+            />
+            <circle
+              cx="11"
+              cy="11"
+              r="8"
+            />
+          </svg>
+          <input
+            aria-label="Search listings"
+            placeholder="Search by address, city, or keyword"
+            value=""
+          />
+        </label>
+        <div
+          class="results-layout"
+        >
+          <aside
+            class="filters"
+          >
+            <div
+              class="filter-heading"
+            >
+              <span>
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-sliders-horizontal"
+                  fill="none"
+                  height="16"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 5H3"
+                  />
+                  <path
+                    d="M12 19H3"
+                  />
+                  <path
+                    d="M14 3v4"
+                  />
+                  <path
+                    d="M16 17v4"
+                  />
+                  <path
+                    d="M21 12h-9"
+                  />
+                  <path
+                    d="M21 19h-5"
+                  />
+                  <path
+                    d="M21 5h-7"
+                  />
+                  <path
+                    d="M8 10v4"
+                  />
+                  <path
+                    d="M8 12H3"
+                  />
+                </svg>
+                 Filters
+              </span>
+              <button>
+                Reset
+              </button>
+            </div>
+            <label
+              class="filter-label"
+              for="area"
+            >
+              Area
+            </label>
+            <div
+              class="select-box"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-map-pin"
+                fill="none"
+                height="14"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="14"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+                />
+                <circle
+                  cx="12"
+                  cy="10"
+                  r="3"
+                />
+              </svg>
+              <select
+                id="area"
+              >
+                <option>
+                  All areas
+                </option>
+              </select>
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-chevron-down"
+                fill="none"
+                height="14"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="14"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m6 9 6 6 6-6"
+                />
+              </svg>
+            </div>
+            <div
+              class="divider"
+            />
+            <span
+              class="filter-label"
+            >
+              Listing status
+            </span>
+            <div
+              class="radio-list"
+            >
+              <button
+                class="radio selected"
+              >
+                <i />
+                Any status
+              </button>
+              <button
+                class="radio"
+              >
+                <i />
+                Active
+                <small>
+                  0
+                </small>
+              </button>
+              <button
+                class="radio"
+              >
+                <i />
+                Pending
+              </button>
+            </div>
+            <div
+              class="divider"
+            />
+            <span
+              class="filter-label"
+            >
+              Bedrooms
+            </span>
+            <div
+              class="bedrooms"
+            >
+              <button
+                class="bed selected"
+              >
+                Any
+              </button>
+              <button
+                class="bed"
+              >
+                1
+              </button>
+              <button
+                class="bed"
+              >
+                2
+              </button>
+              <button
+                class="bed"
+              >
+                3
+              </button>
+              <button
+                class="bed"
+              >
+                4+
+              </button>
+            </div>
+            <div
+              class="divider"
+            />
+            <div
+              class="price-head"
+            >
+              <span
+                class="filter-label"
+              >
+                Min price
+              </span>
+              <strong>
+                $300,000
+              </strong>
+            </div>
+            <input
+              aria-label="Min price"
+              class="range"
+              max="700000"
+              min="300000"
+              step="25000"
+              type="range"
+              value="300000"
+            />
+            <div
+              class="range-labels"
+            >
+              <span>
+                $300k
+              </span>
+              <span>
+                $700k+
+              </span>
+            </div>
+            <div
+              class="divider"
+            />
+            <div
+              class="price-head"
+            >
+              <span
+                class="filter-label"
+              >
+                Max price
+              </span>
+              <strong>
+                $700,000
+              </strong>
+            </div>
+            <input
+              aria-label="Max price"
+              class="range"
+              max="700000"
+              min="300000"
+              step="25000"
+              type="range"
+              value="700000"
+            />
+            <div
+              class="range-labels"
+            >
+              <span>
+                $300k
+              </span>
+              <span>
+                $700k+
+              </span>
+            </div>
+            <div
+              class="divider"
+            />
+            <div
+              class="price-head"
+            >
+              <span
+                class="filter-label"
+              >
+                Target Budget
+              </span>
+              <strong>
+                $0
+              </strong>
+            </div>
+            <input
+              aria-label="Target Budget"
+              class="range"
+              max="700000"
+              min="300000"
+              step="25000"
+              type="range"
+              value="0"
+            />
+            <div
+              class="range-labels"
+            >
+              <span>
+                $300k
+              </span>
+              <span>
+                $700k+
+              </span>
+            </div>
+            <div
+              class="filter-foot"
+            >
+              0
+               matching properties
+            </div>
+          </aside>
+          <div
+            class="listing-area"
+          >
+            <div
+              class="message"
+            >
+              Loading listings…
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer
+        class="page-footer"
+      >
+        <strong>
+          FIELDNOTE 
+          <span>
+            ·
+          </span>
+           LISTING DESK
+        </strong>
+        <span>
+          Listing data from connected MLS sources
+        </span>
+      </footer>
+    </main>
+  </div>
+</div>
+`;
