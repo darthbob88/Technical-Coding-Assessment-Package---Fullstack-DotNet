@@ -41,6 +41,10 @@ function App() {
   const [savedOnly, setSavedOnly] = useState(false);
   const [sort, setSort] = useState("newest");
 
+  //TODO: Target budget scoring is just abs(listing price - target budget).
+  // There are better options, but that's what I thought of.
+  const [targetBudget, setTargetBudget] = useState(0);
+
   useEffect(() => {
     let cancelled = false;
     fetch("/api/listings")
@@ -67,7 +71,8 @@ function App() {
 
   // Cheap solution, to reuse the error-handling, but it works.
   useEffect(() => {
-    if (minPrice > maxPrice) setError("Minimum price cannot be greater than maximum price");
+    if (minPrice > maxPrice)
+      setError("Minimum price cannot be greater than maximum price");
     else setError("");
   }, [minPrice, maxPrice]);
 
@@ -92,13 +97,19 @@ function App() {
         (!savedOnly || saved.includes(listing.id))
       );
     })
-    .sort((a, b) =>
-      sort === "price-low"
-        ? a.price - b.price
-        : sort === "price-high"
-          ? b.price - a.price
-          : new Date(b.listedDate) - new Date(a.listedDate),
-    );
+    .sort((a, b) => {
+      if (sort === "newest") {
+        return new Date(b.listedDate) - new Date(a.listedDate);
+      } else if (sort === "price-low") {
+        return a.price - b.price;
+      } else if (sort === "price-high") {
+        return b.price - a.price;
+      } else if (sort === "target-budget") {
+        return (
+          Math.abs(a.price - targetBudget) - Math.abs(b.price - targetBudget)
+        );
+      }
+    });
 
   function resetFilters() {
     setQuery("");
@@ -187,7 +198,7 @@ function App() {
             </p>
             <h1>Listing desk</h1>
             <p className="subheading">
-              A clear view of what’s available, where it is, and what it costs.
+              A clear view of what's available, where it is, and what it costs.
             </p>
           </div>
           <button className="refresh" onClick={() => window.location.reload()}>
@@ -258,6 +269,7 @@ function App() {
                 <option value="newest">Newest first</option>
                 <option value="price-low">Price: low to high</option>
                 <option value="price-high">Price: high to low</option>
+                <option value="target-budget">Target budget</option>
               </select>
             </label>
           </div>
@@ -329,12 +341,12 @@ function App() {
               </div>
               <div className="divider" />
               <div className="price-head">
-                <span className="filter-label">Minimum price</span>
+                <span className="filter-label">Min price</span>
                 <strong>{money(minPrice)}</strong>
               </div>
               <input
                 className="range"
-                aria-label="Minimum price"
+                aria-label="Min price"
                 type="range"
                 min="300000"
                 max="700000"
@@ -348,20 +360,42 @@ function App() {
               </div>
               <div className="divider" />
               <div className="price-head">
-                {/* TODO: Thanks to not using a mono font, the width can jump upsettingly between values,
-                causing it to wrap to two lines. Test it by going from 375 to 400 */}
-                <span className="filter-label">Maximum price</span>
+                {/* Thanks to not using a mono font, if we call it "Maximum Price", the width can jump upsettingly
+                between values, causing it to wrap to two lines. Test it by going from 375 to 400 */}
+                <span className="filter-label">Max price</span>
                 <strong>{money(maxPrice)}</strong>
               </div>
               <input
                 className="range"
-                aria-label="Maximum price"
+                aria-label="Max price"
                 type="range"
                 min="300000"
                 max="700000"
                 step="25000"
                 value={maxPrice}
                 onChange={(event) => setMaxPrice(Number(event.target.value))}
+              />
+              <div className="range-labels">
+                <span>$300k</span>
+                <span>$700k+</span>
+              </div>
+              <div className="divider" />
+              <div className="price-head">
+                <span className="filter-label">Target Budget</span>
+                <strong>{money(targetBudget)}</strong>
+              </div>
+              <input
+                className="range"
+                aria-label="Target Budget"
+                type="range"
+                min="300000"
+                max="700000"
+                step="25000"
+                value={targetBudget}
+                onChange={(event) => {
+                  setSort("target-budget");
+                  setTargetBudget(Number(event.target.value));
+                }}
               />
               <div className="range-labels">
                 <span>$300k</span>
